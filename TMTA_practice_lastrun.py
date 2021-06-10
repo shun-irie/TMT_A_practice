@@ -29,6 +29,31 @@ import sys  # to get file system encoding
 from psychopy.hardware import keyboard
 
 
+"set the number (optional)"
+"#1,#8は固定。他は無作為に変更する"
+pos1=(-3.87, 0.69)
+pos2=(5.95, -3.4)
+pos3=(3.69, 7.48)
+pos4=(0.28, 1.79)
+pos5=(0.92, -4.11)
+pos6=(-3.86,-6.13 )
+pos7=(-8.47, 1.17)
+pos8=(0, 4.61)
+
+POS=[]
+POS.append(pos2)
+POS.append(pos3)
+POS.append(pos4)
+POS.append(pos5)
+POS.append(pos6)
+POS.append(pos7)
+import random
+order=[random.random() for i in range(0,6)]
+order2=np.array(order).argsort()
+
+Pos=[POS[order2[i]] for i in range(0,6)]
+
+
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -85,49 +110,49 @@ trialClock = core.Clock()
 polygon_1 = visual.Polygon(
     win=win, name='polygon_1',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(-3.87, 0.69),
+    ori=0.0, pos=pos1,
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=0.0, interpolate=True)
 polygon_2 = visual.Polygon(
     win=win, name='polygon_2',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(5.95, -3.4),
+    ori=0.0, pos=Pos[0],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-1.0, interpolate=True)
 polygon_3 = visual.Polygon(
     win=win, name='polygon_3',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(3.69, 7.48),
+    ori=0.0, pos=Pos[1],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-2.0, interpolate=True)
 polygon_4 = visual.Polygon(
     win=win, name='polygon_4',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(0.28, 1.79),
+    ori=0.0, pos=Pos[2],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-3.0, interpolate=True)
 polygon_5 = visual.Polygon(
     win=win, name='polygon_5',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(0.92, -4.11),
+    ori=0.0, pos=Pos[3],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-4.0, interpolate=True)
 polygon_6 = visual.Polygon(
     win=win, name='polygon_6',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(-3.86,-6.13 ),
+    ori=0.0, pos=Pos[4],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-5.0, interpolate=True)
 polygon_7 = visual.Polygon(
     win=win, name='polygon_7',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(-8.47, 1.17),
+    ori=0.0, pos=Pos[5],
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-6.0, interpolate=True)
 polygon_8 = visual.Polygon(
     win=win, name='polygon_8',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(0, 4.61),
+    ori=0.0, pos=pos8,
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-7.0, interpolate=True)
 text_guide1 = visual.TextStim(win=win, name='text_guide1',
@@ -147,56 +172,56 @@ text_guide2 = visual.TextStim(win=win, name='text_guide2',
 text_1 = visual.TextStim(win=win, name='text_1',
     text='1',
     font='Open Sans',
-    units='cm', pos=(-3.87, 0.69), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=pos1, height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-10.0);
 text_2 = visual.TextStim(win=win, name='text_2',
     text='2',
     font='Open Sans',
-    units='cm', pos=(5.95, -3.4), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[0], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-11.0);
 text_3 = visual.TextStim(win=win, name='text_3',
     text='3',
     font='Open Sans',
-    units='cm', pos=(3.69, 7.48), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[1], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-12.0);
 text_4 = visual.TextStim(win=win, name='text_4',
     text='4',
     font='Open Sans',
-    units='cm', pos=(0.28, 1.79), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[2], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-13.0);
 text_5 = visual.TextStim(win=win, name='text_5',
     text='5',
     font='Open Sans',
-    units='cm', pos=(0.92, -4.11), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[3], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-14.0);
 text_6 = visual.TextStim(win=win, name='text_6',
     text='6',
     font='Open Sans',
-    units='cm', pos=(-3.86,-6.13 ), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[4], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-15.0);
 text_7 = visual.TextStim(win=win, name='text_7',
     text='7',
     font='Open Sans',
-    units='cm', pos=(-8.47, 1.17), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=Pos[5], height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-16.0);
 text_8 = visual.TextStim(win=win, name='text_8',
     text='8',
     font='Open Sans',
-    units='cm', pos=(0, 4.61), height=1.0, wrapWidth=None, ori=0.0, 
+    units='cm', pos=pos8, height=1.0, wrapWidth=None, ori=0.0, 
     color='black', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-17.0);
@@ -226,7 +251,7 @@ button_func8 = 0
 button_func8Container = []
 button1 = visual.ButtonStim(win, 
    text=None, font='Open Sans',
-   pos=(-3.87, 0.69),units='cm',
+   pos=pos1,units='cm',
    letterHeight=1.0,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -239,7 +264,7 @@ button1 = visual.ButtonStim(win,
 button1.buttonClock = core.Clock()
 button2 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(5.95, -3.4),units='cm',
+   pos=Pos[0],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -252,7 +277,7 @@ button2 = visual.ButtonStim(win,
 button2.buttonClock = core.Clock()
 button3 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(3.69, 7.48),units='cm',
+   pos=Pos[1],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -265,7 +290,7 @@ button3 = visual.ButtonStim(win,
 button3.buttonClock = core.Clock()
 button4 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(0.28, 1.79),units='cm',
+   pos=Pos[2],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -278,7 +303,7 @@ button4 = visual.ButtonStim(win,
 button4.buttonClock = core.Clock()
 button5 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(0.92, -4.11),units='cm',
+   pos=Pos[3],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -291,7 +316,7 @@ button5 = visual.ButtonStim(win,
 button5.buttonClock = core.Clock()
 button6 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(-3.86,-6.13 ),units='cm',
+   pos=Pos[4],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -304,7 +329,7 @@ button6 = visual.ButtonStim(win,
 button6.buttonClock = core.Clock()
 button7 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(-8.47, 1.17),units='cm',
+   pos=Pos[5],units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -317,7 +342,7 @@ button7 = visual.ButtonStim(win,
 button7.buttonClock = core.Clock()
 button8 = visual.ButtonStim(win, 
    text=None, font='Arvo',
-   pos=(0, 4.61),units='cm',
+   pos=pos8,units='cm',
    letterHeight=0.05,
    size=(2,2), borderWidth=0.0,
    fillColor=None, borderColor=None,
@@ -331,49 +356,49 @@ button8.buttonClock = core.Clock()
 polygon_1_red = visual.Polygon(
     win=win, name='polygon_1_red',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(-3.87, 0.69),
+    ori=0.0, pos=pos1,
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-34.0, interpolate=True)
 polygon_2_red = visual.Polygon(
     win=win, name='polygon_2_red',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(5.95, -3.4),
+    ori=0.0, pos=Pos[0],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-35.0, interpolate=True)
 polygon_3_red = visual.Polygon(
     win=win, name='polygon_3_red',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(3.69, 7.48),
+    ori=0.0, pos=Pos[1],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-36.0, interpolate=True)
 polygon_4_red = visual.Polygon(
     win=win, name='polygon_4_red',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(0.28, 1.79),
+    ori=0.0, pos=Pos[2],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-37.0, interpolate=True)
 polygon_5_red = visual.Polygon(
     win=win, name='polygon_5_red',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(0.92, -4.11),
+    ori=0.0, pos=Pos[3],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-38.0, interpolate=True)
 polygon_6_red = visual.Polygon(
     win=win, name='polygon_6_red',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(-3.86,-6.13 ),
+    ori=0.0, pos=Pos[4],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-39.0, interpolate=True)
 polygon_7_red = visual.Polygon(
     win=win, name='polygon_7_red',units='cm', 
     edges=90, size=(2, 2),
-    ori=0.0, pos=(-8.47, 1.17),
+    ori=0.0, pos=Pos[5],
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-40.0, interpolate=True)
 polygon_8_red = visual.Polygon(
     win=win, name='polygon_8_red',units='cm', 
     edges=90, size=(2,2),
-    ori=0.0, pos=(0, 4.61),
+    ori=0.0, pos=pos8,
     lineWidth=3.0,     colorSpace='rgb',  lineColor='red', fillColor=None,
     opacity=None, depth=-41.0, interpolate=True)
 
